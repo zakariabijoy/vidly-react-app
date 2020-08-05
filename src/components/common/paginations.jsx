@@ -8,7 +8,6 @@ const Pagination = (props) => {
 
   // [1 ... pagesCount].map()
   const pages = _.range(1, pagesCount + 1);
-  console.log(currentPage);
 
   if (pagesCount === 1) return null;
 
