@@ -6,7 +6,7 @@ const Input = ({ name, label, value, onChange }) => {
       <label htmlFor={name}>{label}</label>
       <input
         value={value}
-        onChange={onchange}
+        onChange={onChange}
         type="text"
         className="form-control"
         id={name}
