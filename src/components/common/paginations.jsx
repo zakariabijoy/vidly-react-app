@@ -21,7 +21,7 @@ const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
           >
             <Link
               className="page-link"
-              to=""
+              to="/movies"
               onClick={() => onPageChange(page)}
             >
               {page}
