@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import jwtDecode from 'jwt-decode';
 import Movies from "./components/movies";
 import Cutomers from "./components/customers";
 import Rentals from "./components/rentals";
@@ -12,11 +13,25 @@ import RegisterForm from './components/registerForm';
 import "./App.css";
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function App() {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    try {
+      const jwt = localStorage.getItem('token');
+      const user = jwtDecode(jwt);
+      setUser(user);
+    } catch (ex) {
+
+    }
+
+  }, []);
+
   return (
     <React.Fragment>
       <ToastContainer />
-      <NavBar />
+      <NavBar user={user} />
       <main className="container">
         <Switch>
           <Route path="/register" component={RegisterForm}></Route>
