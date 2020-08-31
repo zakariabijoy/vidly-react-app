@@ -33,8 +33,15 @@ function App() {
           <Route path="/register" component={RegisterForm}></Route>
           <Route path="/login" component={LoginForm}></Route>
           <Route path="/logout" component={Logout}></Route>
-          <Route path="/movies/:id" component={MovieForm}></Route>
-          <Route path="/movies/new" component={MovieForm}></Route>
+          <Route
+            path="/movies/:id"
+            render={props => {
+              console.log(user);
+              if (!user) return <Redirect to="/login" />;
+              return <MovieForm {...props} user={user} />
+            }}
+          >
+          </Route>
           <Route path="/movies" render={props => <Movies {...props} user={user} />}></Route>
           <Route path="/customers" component={Cutomers}></Route>
           <Route path="/rentals" component={Rentals}></Route>
@@ -43,7 +50,7 @@ function App() {
           <Redirect to="/not-found" />
         </Switch>
       </main>
-    </React.Fragment>
+    </React.Fragment >
   );
 }
 
