@@ -35,7 +35,7 @@ function App() {
           <Route path="/logout" component={Logout}></Route>
           <Route path="/movies/:id" component={MovieForm}></Route>
           <Route path="/movies/new" component={MovieForm}></Route>
-          <Route path="/movies" component={Movies}></Route>
+          <Route path="/movies" render={props => <Movies {...props} user={user} />}></Route>
           <Route path="/customers" component={Cutomers}></Route>
           <Route path="/rentals" component={Rentals}></Route>
           <Route path="/not-found" component={NotFound}></Route>
