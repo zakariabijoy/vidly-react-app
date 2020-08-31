@@ -30,6 +30,7 @@ class Movies extends Component {
   }
 
   handleDelete = async (movie) => {
+    // authorization : user should be a admin user (isAdmin property must be true for a admin user)
     const originalMovies = this.state.movies;
     const movies = originalMovies.filter((m) => m._id !== movie._id);
     this.setState({ movies });
