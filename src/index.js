@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import { BrowserRouter } from 'react-router-dom';
 
-console.log(process.env.REACT_APP_NAME);
+console.log(process.env);
 
 ReactDOM.render(
   <React.StrictMode>

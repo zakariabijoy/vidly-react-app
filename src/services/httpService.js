@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import logger from './logService'
 
 
-
+axios.defaults.baseURL = "https://glacial-taiga-19694.herokuapp.com/api";
 
 axios.interceptors.response.use(null, error => {
     const expectedError = error.response && error.response.status >= 400 && error.response.status <= 500;
